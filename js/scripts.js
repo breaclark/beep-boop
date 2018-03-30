@@ -49,6 +49,11 @@ var classFinder = function(item) {
   }
 }
 
+var smallButtonAction = function(target, fillText){
+  var badgeClass = "." + classFinder(target);
+  $(badgeClass).html("<p class='pill-text'>" + fillText + "</p>");
+}
+
 var changeBadgeText = function(target) {
   var clickClass = classFinder($(target).parents(".badge"));
   var currentText = $(target).parents(".badge").children(".pill-text").text();
@@ -58,19 +63,28 @@ var changeBadgeText = function(target) {
     <button type="button" class="btn btn-light cancel">&#10008;</button>
   </form>`;
   $(target).parents(".badge").append(form);
-  $(target).parents(".badge").children(".pill-text").remove()
+  $(target).parents(".badge").children(".pill-text").remove();
+  $(document).on("click","input", function(){
+    console.log("input box clicked into");
+    $(document).click(function(){
+      var inputTarget = this;
+      console.log(inputTarget);
+      if(!$(this).hasClass("change-text-input")){
+        console.log(this);
+        //smallButtonAction($(inputTarget).parents(".badge"), currentText);
+      }
+    });
+  });
   $(".badge-form").submit(function(event){
     var newText = $(".change-text-input").val();
     if (newText === "") {
       newText = currentText;
     }
-    var badgeClass = "." + classFinder(this);
-    $(badgeClass).html("<p class='pill-text'>" + newText + "</p>");
+    smallButtonAction(this, newText);
     event.preventDefault();
   });
   $(".cancel").click(function(event){
-    var badgeClass = "." + classFinder($(this).parents(".badge"));
-    $(badgeClass).html("<p class='pill-text'>" + currentText + "</p>");
+    smallButtonAction($(this).parents(".badge"), currentText);
     event.preventDefault();
   });
 };
