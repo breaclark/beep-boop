@@ -28,7 +28,7 @@ button {
 }
 
 .jumbotron {
-  background: rgba(253,245,230, 0.3);
+  background-color: rgba(253,245,230, 0.3);
 }
 
 .badge{
@@ -55,4 +55,8 @@ button {
 
 .other {
   background-color: Linen;
+}
+
+.bg-light{
+  background-color: rgba(253,245,230, 0.3) !important;
 }
