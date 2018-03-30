@@ -11,7 +11,6 @@ var beeper = function(input) {
       output.push(index);
     }
   }
-
   return output;
 };
 
@@ -24,6 +23,7 @@ $(document).ready(function() {
     var output = beeper(input);
     $("#result").empty();
     $("#result").text(output);
+    $("#result").show();
     $("#input-form")[0].reset();
     event.preventDefault();
   });

@@ -1,0 +1,8 @@
+body {
+  background-image: url(../img/cartographer.png);
+  background-color: #e0a28b;
+}
+
+#result {
+  display: none;
+}
