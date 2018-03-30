@@ -1,5 +1,9 @@
 var beeper = function(input) {
-  return input;
+  var output = [];
+  for(var index = 0; index <= input; index ++){
+    output.push(index);
+  }
+  return output;
 };
 
 
