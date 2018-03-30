@@ -35,7 +35,12 @@ var colorPillMaker = function(input) {
 
 var changeBadgeText = function(badge, target) {
   console.log(badge);
-  $(target).text("blah");
+  var currentText = $(target).text();
+  $(target).html(`<form class="badge-form">
+    <input id="input" type="text">
+    <button type="submit" class="btn btn-light">&#10004;</button>
+    <button type="cancel" class="btn btn-light">&#10008;</button>
+  </form>`);
 };
 
 
@@ -52,13 +57,13 @@ $(document).ready(function() {
 });
 
 $(document).on("click",".beep", function(){
-  changeBadgeText("beep",this);
+  changeBadgeText(".beep",this);
 });
 
 $(document).on("click",".boop", function(){
-  changeBadgeText("boop",this);
+  changeBadgeText(".boop",this);
 });
 
 $(document).on("click",".dave", function(){
-  changeBadgeText("dave",this);
+  changeBadgeText(".dave",this);
 });
