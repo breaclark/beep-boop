@@ -21,13 +21,13 @@ var colorPillMaker = function(input) {
   var outputString = ""
   input.forEach(function(arrayItem){
     if (arrayItem === "Beep!") {
-      outputString += "<div class='badge badge-pill beep'>" + arrayItem + "</div>";
+      outputString += "<div class='badge badge-pill beep'><p>" + arrayItem + "</p></div>";
     } else if (arrayItem === "Boop!") {
-      outputString += "<div class='badge badge-pill boop'>" + arrayItem + "</div>";
+      outputString += "<div class='badge badge-pill boop'><p>" + arrayItem + "</p></div>";
     } else if (arrayItem === "I'm sorry, Dave. I'm afraid I can't do that."){
-      outputString += "<div class='badge badge-pill dave'>" + arrayItem + "</div>";
+      outputString += "<div class='badge badge-pill dave'><p>" + arrayItem + "</p></div>";
     } else {
-      outputString += "<div class='badge badge-pill other'>" + arrayItem + "</div>";
+      outputString += "<div class='badge badge-pill other'><p>" + arrayItem + "</p></div>";
     }
   });
   return outputString;
@@ -37,13 +37,19 @@ var changeBadgeText = function(badge, target) {
   console.log(badge);
   var currentText = $(target).text();
   var form = `<form class="badge-form">
-    <input id="input" type="text">
+    <input class="change-text-input" type="text">
     <button type="button" class="btn btn-light change-text">&#10004;</button>
     <button type="button" class="btn btn-light cancel">&#10008;</button>
   </form>`;
-  $(target).html(form);
-};
+  $(target).append(form);
 
+  $(".change-text").click(function(){
+    var newText = $(this).parents(".badge").children(".change-text-input").val();
+    console.log(newText);
+    $(this).parents(".badge").text();
+  });
+
+};
 
 $(document).ready(function() {
   $("#input-form").submit(function(event) {
@@ -55,25 +61,16 @@ $(document).ready(function() {
     $("#input-form")[0].reset();
     event.preventDefault();
   });
-
 });
 
-$(document).on("click",".beep", function(){
+$(document).on("click",".beep p", function(){
   changeBadgeText(".beep",this);
 });
 
-$(document).on("click",".boop", function(){
+$(document).on("click",".boop p", function(){
   changeBadgeText(".boop",this);
 });
 
-$(document).on("click",".dave", function(){
+$(document).on("click",".dave p", function(){
   changeBadgeText(".dave",this);
-});
-
-$(document).on("click",".change-text", function(){
-  console.log("change-text was clicked!");
-});
-
-$(document).on("click",".cancel", function(){
-  console.log("cancel was clicked!");
 });
