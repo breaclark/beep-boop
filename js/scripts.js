@@ -1,4 +1,6 @@
-
+var beeper = function(input) {
+  return false;
+};
 
 
 
@@ -6,9 +8,9 @@
 $(document).ready(function() {
   $("#input-form").submit(function(event) {
     var input = parseInt($("#input").val());
-    var output;
+    var output = beeper(input);
     $("#result").empty();
-    $("#result").append(output);
+    $("#result").text(output);
     event.preventDefault();
   });
 });
