@@ -34,6 +34,17 @@ var colorPillMaker = function(input) {
 };
 
 var changeBadgeText = function(target) {
+  var badgeClass;
+  if($(target).parents(".badge").hasClass("beep")){
+    badgeClass = "beep";
+  } else if($(target).parents(".badge").hasClass("boop")){
+    badgeClass = "boop";
+  } else if($(target).parents(".badge").hasClass("dave")){
+    badgeClass = "dave";
+  }
+  else {
+    badgeClass = "other";
+  }
   var currentText = $(target).parents(".badge").children(".start-text").text();
   var form = `<form class="badge-form">
     <input class="change-text-input" type="text">
@@ -45,7 +56,9 @@ var changeBadgeText = function(target) {
 
   $(".badge-form").submit(function(event){
     var newText = $(".change-text-input").val();
-    console.log(newText);
+    if (newText === "") {
+      newText = currentText;
+    }
     $(this).parents(".badge").text(newText);
     event.preventDefault();
   });
