@@ -1,8 +1,13 @@
 var beeper = function(input) {
   var output = [];
   for(var index = 0; index <= input; index ++){
-    output.push(index);
+    if(index.toString().includes("0")){
+      output.push("Beep");
+    } else {
+      output.push(index);
+    }
   }
+
   return output;
 };
 
