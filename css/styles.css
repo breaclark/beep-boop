@@ -14,6 +14,10 @@ h1 {
   font-weight: 500;
 }
 
+#input {
+  background: rgba(253,245,230, 0.3);
+}
+
 button {
   margin-left: 20px;
 }

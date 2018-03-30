@@ -33,6 +33,10 @@ var colorPillMaker = function(input) {
   return outputString;
 };
 
+var changeBadgeText = function(badge) {
+  console.log(badge);
+};
+
 
 $(document).ready(function() {
   $("#input-form").submit(function(event) {
@@ -44,4 +48,16 @@ $(document).ready(function() {
     $("#input-form")[0].reset();
     event.preventDefault();
   });
+});
+
+$(document).on("click",".beep", function(){
+  changeBadgeText("beep");
+});
+
+$(document).on("click",".boop", function(){
+  changeBadgeText("boop");
+});
+
+$(document).on("click",".dave", function(){
+  changeBadgeText("dave");
 });
