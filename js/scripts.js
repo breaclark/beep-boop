@@ -21,20 +21,21 @@ var colorPillMaker = function(input) {
   var outputString = ""
   input.forEach(function(arrayItem){
     if (arrayItem === "Beep!") {
-      outputString += "<span class='badge badge-pill beep'>" + arrayItem + "</span>";
+      outputString += "<div class='badge badge-pill beep'>" + arrayItem + "</div>";
     } else if (arrayItem === "Boop!") {
-      outputString += "<span class='badge badge-pill boop'>" + arrayItem + "</span>";
+      outputString += "<div class='badge badge-pill boop'>" + arrayItem + "</div>";
     } else if (arrayItem === "I'm sorry, Dave. I'm afraid I can't do that."){
-      outputString += "<span class='badge badge-pill dave'>" + arrayItem + "</span>";
+      outputString += "<div class='badge badge-pill dave'>" + arrayItem + "</div>";
     } else {
-      outputString += "<span class='badge badge-pill other'>" + arrayItem + "</span>";
+      outputString += "<div class='badge badge-pill other'>" + arrayItem + "</div>";
     }
   });
   return outputString;
 };
 
-var changeBadgeText = function(badge) {
+var changeBadgeText = function(badge, target) {
   console.log(badge);
+  $(target).text("blah");
 };
 
 
@@ -51,13 +52,13 @@ $(document).ready(function() {
 });
 
 $(document).on("click",".beep", function(){
-  changeBadgeText("beep");
+  changeBadgeText("beep",this);
 });
 
 $(document).on("click",".boop", function(){
-  changeBadgeText("boop");
+  changeBadgeText("boop",this);
 });
 
 $(document).on("click",".dave", function(){
-  changeBadgeText("dave");
+  changeBadgeText("dave",this);
 });
