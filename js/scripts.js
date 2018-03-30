@@ -35,22 +35,22 @@ var colorPillMaker = function(input) {
 
 var classFinder = function(item) {
   if($(item).hasClass("beep")){
-    return ".beep"; }
+    return "beep"; }
   else if($(item).hasClass("boop")) {
-    return ".boop";
+    return "boop";
   }
   else if($(item).hasClass("dave")) {
-    return ".dave";
+    return "dave";
   }
   else {
-    return ".other";
+    return "other";
   }
 }
 
 var changeBadgeText = function(target) {
-  console.log(target);
+  var clickClass = classFinder($(target).parents(".badge"));
   var currentText = $(target).parents(".badge").children(".start-text").text();
-  var form = `<form class="badge-form` +  + `">
+  var form = `<form class="badge-form `+ clickClass +`">
     <input class="change-text-input" type="text">
     <button type="submit" class="btn btn-light change-text">&#10004;</button>
     <button type="button" class="btn btn-light cancel">&#10008;</button>
@@ -63,6 +63,7 @@ var changeBadgeText = function(target) {
     if (newText === "") {
       newText = currentText;
     }
+    var badgeClass = "." + classFinder(this);
     $(badgeClass).text(newText);
     event.preventDefault();
   });
@@ -74,7 +75,8 @@ $(document).ready(function() {
     var input = parseInt($("#input").val());
     var output = beeper(input);
     $("#result").empty();
-    $("#result").html(colorPillMaker(output));
+    $("#result").append("<p>Click the pills to change their values</p>");
+    $("#result").append(colorPillMaker(output));
     $("#result").show();
     $("#input-form")[0].reset();
     event.preventDefault();
