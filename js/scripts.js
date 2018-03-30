@@ -1,5 +1,5 @@
 var beeper = function(input) {
-  return false;
+  return input;
 };
 
 
