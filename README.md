@@ -1,6 +1,6 @@
 # Beep Boop
 
-#### A program that takes an input and returns "Beep!", "Boop!", or "I'm sorry, Dave. I'm afraid I can't do that." depending on the input. March 30, 2018
+#### A program that takes an input and returns a list of numbers up to and including that number, replacing some with "Beep!", "Boop!", or "I'm sorry, Dave. I'm afraid I can't do that." depending on the numbers. March 30, 2018
 
 #### By **Brea Borlas**
 
@@ -23,8 +23,8 @@
 
 ## Setup/Installation Requirements
 
-3. Clone this repository
-4. Open in a browser
+1. Clone this repository
+2. Open in a browser
 
 ## Known Bugs
 * No known bugs.
