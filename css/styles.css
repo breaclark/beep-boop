@@ -4,16 +4,28 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+.card {
+  margin-top: 30vh;
+  background: rgba(253,245,230, 0.3);
+  border-radius: 6px;
+}
+
 h1 {
   font-weight: 500;
 }
 
-#result {
-  display: none;
+button {
+  margin-left: 20px;
 }
 
-.card {
-  margin-top: 30vh;
-  background: rgba(253,245,230, 0.3);
-  border-radius: 5px;
+#result {
+  display: none;
+  margin-top: 4px;
+}
+
+.badge{
+  font-size: 16px;
+  font-weight: 300;
+  margin-left: 2px;
+  margin-right: 2px;
 }

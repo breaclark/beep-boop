@@ -1,3 +1,4 @@
+//Business logic here
 var beeper = function(input) {
   var output = [];
   for(var index = 0; index <= input; index ++){
@@ -15,14 +16,31 @@ var beeper = function(input) {
 };
 
 
-
 //Interface logic below here
+var colorPillMaker = function(input) {
+  var outputString = ""
+  input.forEach(function(arrayItem){
+    if (arrayItem === "Beep!") {
+      outputString += "<span class='badge badge-pill badge-primary'>" + arrayItem + "</span>";
+    } else if (arrayItem === "Boop!") {
+      outputString += "<span class='badge badge-pill badge-success'>" + arrayItem + "</span>";
+    } else if (arrayItem === "I'm sorry, Dave. I'm afraid I can't do that."){
+      outputString += "<span class='badge badge-pill badge-dark'>" + arrayItem + "</span>";
+    } else {
+      outputString += "<span class='badge badge-pill badge-light'>" + arrayItem + "</span>";
+    }
+  });
+  console.log(outputString);
+  return outputString;
+};
+
+
 $(document).ready(function() {
   $("#input-form").submit(function(event) {
     var input = parseInt($("#input").val());
     var output = beeper(input);
     $("#result").empty();
-    $("#result").text(output);
+    $("#result").html(colorPillMaker(output));
     $("#result").show();
     $("#input-form")[0].reset();
     event.preventDefault();
