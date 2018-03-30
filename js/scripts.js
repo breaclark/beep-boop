@@ -1,8 +1,12 @@
 var beeper = function(input) {
   var output = [];
   for(var index = 0; index <= input; index ++){
-    if(index.toString().includes("0")){
-      output.push("Beep");
+    if (index % 3 == 0 && index !== 0) {
+      output.push("I'm sorry, Dave. I'm afraid I can't do that.");
+    } else if (index.toString().includes("1")) {
+      output.push("Boop!");
+    } else if (index.toString().includes("0")) {
+      output.push("Beep!");
     } else {
       output.push(index);
     }
