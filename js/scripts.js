@@ -38,8 +38,8 @@ var changeBadgeText = function(badge, target) {
   var currentText = $(target).text();
   var form = `<form class="badge-form">
     <input id="input" type="text">
-    <button type="button" class="btn btn-light">&#10004;</button>
-    <button type="button" class="btn btn-light">&#10008;</button>
+    <button type="button" class="btn btn-light change-text">&#10004;</button>
+    <button type="button" class="btn btn-light cancel">&#10008;</button>
   </form>`;
   $(target).html(form);
 };
@@ -68,4 +68,12 @@ $(document).on("click",".boop", function(){
 
 $(document).on("click",".dave", function(){
   changeBadgeText(".dave",this);
+});
+
+$(document).on("click",".change-text", function(){
+  console.log("change-text was clicked!");
+});
+
+$(document).on("click",".cancel", function(){
+  console.log("cancel was clicked!");
 });
