@@ -21,32 +21,33 @@ var colorPillMaker = function(input) {
   var outputString = ""
   input.forEach(function(arrayItem){
     if (arrayItem === "Beep!") {
-      outputString += "<div class='badge badge-pill beep'><p>" + arrayItem + "</p></div>";
+      outputString += "<div class='badge badge-pill beep'><p class='start-text'>" + arrayItem + "</p></div>";
     } else if (arrayItem === "Boop!") {
-      outputString += "<div class='badge badge-pill boop'><p>" + arrayItem + "</p></div>";
+      outputString += "<div class='badge badge-pill boop'><p class='start-text'>" + arrayItem + "</p></div>";
     } else if (arrayItem === "I'm sorry, Dave. I'm afraid I can't do that."){
-      outputString += "<div class='badge badge-pill dave'><p>" + arrayItem + "</p></div>";
+      outputString += "<div class='badge badge-pill dave'><p class='start-text'>" + arrayItem + "</p></div>";
     } else {
-      outputString += "<div class='badge badge-pill other'><p>" + arrayItem + "</p></div>";
+      outputString += "<div class='badge badge-pill other'><p class='start-text'>" + arrayItem + "</p></div>";
     }
   });
   return outputString;
 };
 
-var changeBadgeText = function(badge, target) {
-  console.log(badge);
-  var currentText = $(target).text();
+var changeBadgeText = function(target) {
+  var currentText = $(target).parents(".badge").children(".start-text").text();
   var form = `<form class="badge-form">
     <input class="change-text-input" type="text">
-    <button type="button" class="btn btn-light change-text">&#10004;</button>
+    <button type="submit" class="btn btn-light change-text">&#10004;</button>
     <button type="button" class="btn btn-light cancel">&#10008;</button>
   </form>`;
-  $(target).append(form);
+  $(target).parents(".badge").append(form);
+  $(target).parents(".badge").children(".start-text").remove()
 
-  $(".change-text").click(function(){
-    var newText = $(this).parents(".badge").children(".change-text-input").val();
+  $(".badge-form").submit(function(event){
+    var newText = $(".change-text-input").val();
     console.log(newText);
-    $(this).parents(".badge").text();
+    $(this).parents(".badge").text(newText);
+    event.preventDefault();
   });
 
 };
@@ -63,14 +64,6 @@ $(document).ready(function() {
   });
 });
 
-$(document).on("click",".beep p", function(){
-  changeBadgeText(".beep",this);
-});
-
-$(document).on("click",".boop p", function(){
-  changeBadgeText(".boop",this);
-});
-
-$(document).on("click",".dave p", function(){
-  changeBadgeText(".dave",this);
+$(document).on("click",".start-text", function(){
+  changeBadgeText(this);
 });
