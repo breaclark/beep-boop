@@ -20,14 +20,16 @@ var beeper = function(input) {
 var colorPillMaker = function(input) {
   var outputString = ""
   input.forEach(function(arrayItem){
+    var stringBegin = "<div class='badge badge-pill ";
+    var stringEnd = "'><p class='pill-text'>";
     if (arrayItem === "Beep!") {
-      outputString += "<div class='badge badge-pill beep'><p class='pill-text'>" + arrayItem + "</p></div>";
+      outputString += stringBegin + "beep" + stringEnd + arrayItem + "</p></div>";
     } else if (arrayItem === "Boop!") {
-      outputString += "<div class='badge badge-pill boop'><p class='pill-text'>" + arrayItem + "</p></div>";
+      outputString += stringBegin + "boop" + stringEnd + arrayItem + "</p></div>";
     } else if (arrayItem === "I'm sorry, Dave. I'm afraid I can't do that."){
-      outputString += "<div class='badge badge-pill dave'><p class='pill-text'>" + arrayItem + "</p></div>";
+      outputString += stringBegin + "dave" + stringEnd + arrayItem + "</p></div>";
     } else {
-      outputString += "<div class='badge badge-pill other'><p class='pill-text'>" + arrayItem + "</p></div>";
+      outputString += stringBegin + "other" + stringEnd + arrayItem + "</p></div>";
     }
   });
   return outputString;
@@ -57,7 +59,6 @@ var changeBadgeText = function(target) {
   </form>`;
   $(target).parents(".badge").append(form);
   $(target).parents(".badge").children(".pill-text").remove()
-
   $(".badge-form").submit(function(event){
     var newText = $(".change-text-input").val();
     if (newText === "") {
@@ -67,13 +68,11 @@ var changeBadgeText = function(target) {
     $(badgeClass).html("<p class='pill-text'>" + newText + "</p>");
     event.preventDefault();
   });
-
   $(".cancel").click(function(event){
     var badgeClass = "." + classFinder($(this).parents(".badge"));
     $(badgeClass).html("<p class='pill-text'>" + currentText + "</p>");
     event.preventDefault();
   });
-
 };
 
 $(document).ready(function() {
