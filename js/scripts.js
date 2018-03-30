@@ -64,17 +64,6 @@ var changeBadgeText = function(target) {
   </form>`;
   $(target).parents(".badge").append(form);
   $(target).parents(".badge").children(".pill-text").remove();
-  $(document).on("click","input", function(){
-    console.log("input box clicked into");
-    $(document).click(function(){
-      var inputTarget = this;
-      console.log(inputTarget);
-      if(!$(this).hasClass("change-text-input")){
-        console.log(this);
-        //smallButtonAction($(inputTarget).parents(".badge"), currentText);
-      }
-    });
-  });
   $(".badge-form").submit(function(event){
     var newText = $(".change-text-input").val();
     if (newText === "") {
