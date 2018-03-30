@@ -21,13 +21,13 @@ var colorPillMaker = function(input) {
   var outputString = ""
   input.forEach(function(arrayItem){
     if (arrayItem === "Beep!") {
-      outputString += "<div class='badge badge-pill beep'><p class='start-text'>" + arrayItem + "</p></div>";
+      outputString += "<div class='badge badge-pill beep'><p class='pill-text'>" + arrayItem + "</p></div>";
     } else if (arrayItem === "Boop!") {
-      outputString += "<div class='badge badge-pill boop'><p class='start-text'>" + arrayItem + "</p></div>";
+      outputString += "<div class='badge badge-pill boop'><p class='pill-text'>" + arrayItem + "</p></div>";
     } else if (arrayItem === "I'm sorry, Dave. I'm afraid I can't do that."){
-      outputString += "<div class='badge badge-pill dave'><p class='start-text'>" + arrayItem + "</p></div>";
+      outputString += "<div class='badge badge-pill dave'><p class='pill-text'>" + arrayItem + "</p></div>";
     } else {
-      outputString += "<div class='badge badge-pill other'><p class='start-text'>" + arrayItem + "</p></div>";
+      outputString += "<div class='badge badge-pill other'><p class='pill-text'>" + arrayItem + "</p></div>";
     }
   });
   return outputString;
@@ -49,14 +49,14 @@ var classFinder = function(item) {
 
 var changeBadgeText = function(target) {
   var clickClass = classFinder($(target).parents(".badge"));
-  var currentText = $(target).parents(".badge").children(".start-text").text();
+  var currentText = $(target).parents(".badge").children(".pill-text").text();
   var form = `<form class="badge-form `+ clickClass +`">
     <input class="change-text-input" type="text">
     <button type="submit" class="btn btn-light change-text">&#10004;</button>
     <button type="button" class="btn btn-light cancel">&#10008;</button>
   </form>`;
   $(target).parents(".badge").append(form);
-  $(target).parents(".badge").children(".start-text").remove()
+  $(target).parents(".badge").children(".pill-text").remove()
 
   $(".badge-form").submit(function(event){
     var newText = $(".change-text-input").val();
@@ -64,7 +64,13 @@ var changeBadgeText = function(target) {
       newText = currentText;
     }
     var badgeClass = "." + classFinder(this);
-    $(badgeClass).text(newText);
+    $(badgeClass).html("<p class='pill-text'>" + newText + "</p>");
+    event.preventDefault();
+  });
+
+  $(".cancel").click(function(event){
+    var badgeClass = "." + classFinder($(this).parents(".badge"));
+    $(badgeClass).html("<p class='pill-text'>" + currentText + "</p>");
     event.preventDefault();
   });
 
@@ -83,6 +89,6 @@ $(document).ready(function() {
   });
 });
 
-$(document).on("click",".start-text", function(){
+$(document).on("click",".pill-text", function(){
   changeBadgeText(this);
 });
