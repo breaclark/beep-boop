@@ -33,20 +33,24 @@ var colorPillMaker = function(input) {
   return outputString;
 };
 
-var changeBadgeText = function(target) {
-  var badgeClass;
-  if($(target).parents(".badge").hasClass("beep")){
-    badgeClass = "beep";
-  } else if($(target).parents(".badge").hasClass("boop")){
-    badgeClass = "boop";
-  } else if($(target).parents(".badge").hasClass("dave")){
-    badgeClass = "dave";
+var classFinder = function(item) {
+  if($(item).hasClass("beep")){
+    return ".beep"; }
+  else if($(item).hasClass("boop")) {
+    return ".boop";
+  }
+  else if($(item).hasClass("dave")) {
+    return ".dave";
   }
   else {
-    badgeClass = "other";
+    return ".other";
   }
+}
+
+var changeBadgeText = function(target) {
+  console.log(target);
   var currentText = $(target).parents(".badge").children(".start-text").text();
-  var form = `<form class="badge-form">
+  var form = `<form class="badge-form` +  + `">
     <input class="change-text-input" type="text">
     <button type="submit" class="btn btn-light change-text">&#10004;</button>
     <button type="button" class="btn btn-light cancel">&#10008;</button>
@@ -59,7 +63,7 @@ var changeBadgeText = function(target) {
     if (newText === "") {
       newText = currentText;
     }
-    $(this).parents(".badge").text(newText);
+    $(badgeClass).text(newText);
     event.preventDefault();
   });
 
