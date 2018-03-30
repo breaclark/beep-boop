@@ -23,9 +23,32 @@ button {
   margin-top: 4px;
 }
 
+.jumbotron {
+  background: rgba(253,245,230, 0.3);
+}
+
 .badge{
   font-size: 16px;
   font-weight: 300;
   margin-left: 2px;
   margin-right: 2px;
+}
+
+.beep {
+  background-color: #594F4F;
+  color: white;
+}
+
+.boop {
+  background-color: #99B898;
+  color: white;
+}
+
+.dave {
+  background-color: #E0A28B;
+  color: white;
+}
+
+.other {
+  background-color: Linen;
 }

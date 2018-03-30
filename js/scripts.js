@@ -21,16 +21,15 @@ var colorPillMaker = function(input) {
   var outputString = ""
   input.forEach(function(arrayItem){
     if (arrayItem === "Beep!") {
-      outputString += "<span class='badge badge-pill badge-primary'>" + arrayItem + "</span>";
+      outputString += "<span class='badge badge-pill beep'>" + arrayItem + "</span>";
     } else if (arrayItem === "Boop!") {
-      outputString += "<span class='badge badge-pill badge-success'>" + arrayItem + "</span>";
+      outputString += "<span class='badge badge-pill boop'>" + arrayItem + "</span>";
     } else if (arrayItem === "I'm sorry, Dave. I'm afraid I can't do that."){
-      outputString += "<span class='badge badge-pill badge-dark'>" + arrayItem + "</span>";
+      outputString += "<span class='badge badge-pill dave'>" + arrayItem + "</span>";
     } else {
-      outputString += "<span class='badge badge-pill badge-light'>" + arrayItem + "</span>";
+      outputString += "<span class='badge badge-pill other'>" + arrayItem + "</span>";
     }
   });
-  console.log(outputString);
   return outputString;
 };
 
