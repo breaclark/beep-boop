@@ -14,7 +14,6 @@
 | :-------------     | :------------- | :------------- |
 | Program returns 0 when 0 is input | 0 | [0] |
 | Program returns numbers from 0 to the input number | 3 | [0,1,2,3] |
-| Program replaces 0 with "Beep!" | 0 | ["Beep!"] |
 | Program replaces the first number that contains a 0 with "Beep!" | 3 | ["Beep!",1,2,3] |
 | Program replaces the first number that contains a 1 with "Boop!" | 3 | ["Beep!","Boop!",2,3] |
 |Program replaces the first number that is divisible by 3 with "I'm sorry, Dave. I'm afraid I can't do that." | 3 | ["Beep!","Boop!",2,"I'm sorry, Dave. I'm afraid I can't do that."] |
