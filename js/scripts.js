@@ -24,6 +24,7 @@ $(document).ready(function() {
     var output = beeper(input);
     $("#result").empty();
     $("#result").text(output);
+    $("#input-form")[0].reset();
     event.preventDefault();
   });
 });

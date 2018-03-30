@@ -4,11 +4,6 @@
 
 #### By **Brea Borlas**
 
-## Description
-
-//Add more here later
-
-
 ### Specs
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
