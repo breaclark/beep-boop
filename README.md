@@ -2,7 +2,7 @@
 
 #### A program that takes an input and returns a list of numbers up to and including that number, replacing some with "Beep!", "Boop!", or "I'm sorry, Dave. I'm afraid I can't do that." depending on the numbers. March 30, 2018
 
-#### By **Brea Borlas**
+#### By **Brea Clark**
 
 ### Specs
 | Spec | Input | Output |
@@ -35,4 +35,4 @@ _Email me at breatortilla@gmail.com for support_
 
 ### License
 
-Copyright (c) 2018 **_{Brea Borlas}_**
+Copyright (c) 2018 **Brea Clark**
